@@ -57,7 +57,8 @@
             <td>{{ $tarefa->id }}</td>
             <td>{{ $tarefa->titulo }}</td>
             <td>{{ $tarefa->responsavel }}</td>
-            <td><a href="">Editar</a> | <a href="">Excluir</a>  |  <a href="">Concluir</a></td>
+            <td><a href="{{ route('tarefas.edit', $tarefa->id) }}">Editar</a> | <a href="">Excluir</a>  |  <a href="">Concluir</a></td>
+
         </tr>
         @endforeach
     </tbody>

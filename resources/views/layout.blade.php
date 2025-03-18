@@ -105,7 +105,7 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="create-tarefa">Cadastrar Tarefa</a>
+          <a class="nav-link active" aria-current="page" href="/tarefas/create">Cadastrar Tarefa</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="listar">Listar Tarefas</a>
@@ -129,16 +129,14 @@
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <p class="col-md-4 mb-0 text-body-secondary">&copy; 2025 ESIG</p>
 
-    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+    <a href="/" class="nav col-md-4 justify-content-end">
       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+      <li class="nav-item"><p  class="nav-link px-2 text-body-secondary">Gerenciador de Tarefas</p></li>
+      <li class="nav-item"><p  class="nav-link px-2 text-body-secondary">Autor: Adrino Silva Belisio</p></li>
+
     </ul>
   </footer>
 </div>

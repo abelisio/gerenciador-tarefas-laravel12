@@ -56,7 +56,7 @@ class TarefaController extends Controller
      */
     public function create()
     {
-        return view("create");
+        return view("tarefas.create");
     }
 
     /**
@@ -107,9 +107,11 @@ class TarefaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tarefa $tarefa)
+    public function edit($id)
     {
-        //
+
+        $tarefa = $this->tarefa->find($id);
+        return view('tarefas.edit', compact('tarefa'));
     }
 
     /**
@@ -117,7 +119,11 @@ class TarefaController extends Controller
      */
     public function update(Request $request, Tarefa $tarefa)
     {
-        //
+
+
+        $tarefa->update($request->all());
+
+        return redirect()->route('tarefas.index')->with('success', 'Tarefa atualizada com sucesso.');
     }
 
     /**
