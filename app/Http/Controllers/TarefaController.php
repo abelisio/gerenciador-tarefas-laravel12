@@ -48,7 +48,7 @@ class TarefaController extends Controller
         // Paginação (10 registros por página)
         $tarefas = $query->orderBy('id', 'desc')->paginate(10);
 
-        return view('listar', compact('tarefas'));
+        return view('tarefas.listar', compact('tarefas'));
     }
 
     /**
@@ -133,7 +133,8 @@ class TarefaController extends Controller
      */
     public function destroy($id)
     {
-        $tarefa = Tarefa::findOrFail($id)->delete();
+
+        $tarefas = Tarefa::findOrFail($id)->delete();
 
         return redirect()->route('tarefas.index');
     }

@@ -40,6 +40,16 @@
 </select>
      </div>
   </div>
+
+  <div class="col-md">
+    <div class="form-floating">
+<select class="form-select form-select-lg mb-3" id="situação" name="situação" aria-label="Large select example" require>
+  <option selected>Situação</option>
+  <option value="Andamento">Andamento</option>
+  <option value="Concluida">Concluida</option>
+</select>
+     </div>
+  </div>
 </div>
   </div>
 

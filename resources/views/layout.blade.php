@@ -108,11 +108,9 @@
           <a class="nav-link active" aria-current="page" href="/tarefas/create">Cadastrar Tarefa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="listar">Listar Tarefas</a>
+          <a class="nav-link active" aria-current="page" href="/tarefas/listar">Listar Tarefas</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="create-responsavel">Cadastrar Reposável</a>
-        </li>
+
       </ul>
 
     </div>
