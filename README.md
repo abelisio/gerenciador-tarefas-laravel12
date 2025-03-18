@@ -13,6 +13,7 @@ Este sisetma foi desenvolvida em Laravel 12 e Bootstrap. Os dados são armazenad
 - **Servidor Web (Apache)**
 - **Banco de Dados Postgres SQL 17**
 - **Composer** (para gerenciamento de dependências)
+- **Boostrap 5**
 
 ## Instalação
 
