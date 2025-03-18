@@ -101,7 +101,9 @@ class TarefaController extends Controller
      */
     public function show(Tarefa $tarefa)
     {
-        return view('listar');
+        // return view('listar');
+
+        return view('tarefas.show', compact('tarefa'));
     }
 
     /**
@@ -129,8 +131,10 @@ class TarefaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tarefa $tarefa)
+    public function destroy($id)
     {
-        //
+        $tarefa = Tarefa::findOrFail($id)->delete();
+
+        return redirect()->route('tarefas.index');
     }
 }

@@ -42,7 +42,7 @@
 </div>
 
 <!-- Tabela de Tarefas -->
-<table class="table table-striped table-hover">
+<table class="table table-hover" vertical-align: middle;>
     <thead>
         <tr>
             <th>Número</th>
@@ -57,7 +57,13 @@
             <td>{{ $tarefa->id }}</td>
             <td>{{ $tarefa->titulo }}</td>
             <td>{{ $tarefa->responsavel }}</td>
-            <td><a href="{{ route('tarefas.edit', $tarefa->id) }}">Editar</a> | <a href="">Excluir</a>  |  <a href="">Concluir</a></td>
+            <td><a class="btn btn-info edit-btn" href="{{ route('tarefas.edit', $tarefa->id) }}"><ion-icon name="create-outline">Editar</a> </td>
+               <td <form action="{{$tarefa->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline">Excluir</button> </td>
+<td><a class="btn btn-secondary" href="{{ route('tarefas.edit', $tarefa->id) }}"><ion-icon name="create-outline">Concluir</a>
+                </td>
 
         </tr>
         @endforeach

@@ -17,10 +17,4 @@ Route::get('/create-responsavel', [ResponsavelController::class, 'create'])->nam
 Route::get('/tarefas/{id}/edit', [TarefaController::class, 'edit'])->name('tarefas.edit');
 Route::put('/tarefas/{tarefa}', [TarefaController::class, 'update'])->name('tarefas.update');
 
-
-
-
-Route::post('/store-responsavel', [ResponsavelController::class, 'store'])->name('responsavel.store');
-
-Route::post('/store-tarefa', [tarefaController::class, 'store'])->name('tarefas.store');
-Route::delete('/destroy-tarefa', [tarefaController::class, 'destroy'])->name('tarefas.destroy');
+Route::delete('/{id}', [TarefaController::class, 'destroy'])->name('tarefas.destroy');
