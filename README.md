@@ -1,18 +1,17 @@
-# Documentação do sistema de Notícias
+# Documentação do Sistema de Gerenciamento de Tarefas
 
 
 ## Visão Geral:
 
 ```
-Este sisetma foi desenvolvida em Laravel 11 e Vite no frontend. Os dados são armazenados em um banco de dados MySQL.
+Este sisetma foi desenvolvida em Laravel 12 e Bootstrap. Os dados são armazenados em um banco de dados Postgres SQL.
 ```
 
 ## Requisitos
 
-- **PHP 8.3+ ou superior**
-- **vite**
+- **PHP 8.4+ ou superior**
 - **Servidor Web (Apache)**
-- **Banco de Dados MySQL 8.0**
+- **Banco de Dados Postgres SQL 17**
 - **Composer** (para gerenciamento de dependências)
 
 ## Instalação
@@ -41,7 +40,7 @@ composer install
 
 
 ```
-php artisan migrate e npm run dev
+php artisan migrate 
 ```
 
 4. **Configuração da Conexão com o Banco de Dados:**
@@ -50,18 +49,18 @@ php artisan migrate e npm run dev
 No arquivo env.php insira as credenciais do seu banco de dados:
 ```
 ```
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'nome_do_banco_de_dados');
-define('DB_USER', 'usuario');
-define('DB_PASS', 'senha');
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=
+DB_USERNAME=postgres
+DB_PASSWORD=
 ```
 ## Uso
 
 5. **Faça o registro de usuário para logar e criar/editar e deletar posts:**
 
 ```
-http://127.0.0.1:8000/register
+http://127.0.0.1:8000/
 ```
-```
-http://127.0.0.1:8000/login
-```
+
