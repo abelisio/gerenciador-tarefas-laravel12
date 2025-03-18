@@ -9,6 +9,7 @@ use App\Models\Responsavel;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/listar', [tarefaController::class, 'index'])->name('tarefas.index');
 Route::get('/tarefas/create', [tarefaController::class, 'create'])->name(name: 'tarefas.create');
+Route::get('/tarefas/create', [tarefaController::class, 'create'])->name(name: 'tarefas.store');
 Route::get('/tarefas{tarefa}', [tarefaController::class, 'show'])->name('tarefas.show');
 
 Route::get('/create-responsavel', [ResponsavelController::class, 'create'])->name(name: 'responsavel.create');
