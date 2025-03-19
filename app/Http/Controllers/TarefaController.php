@@ -100,9 +100,7 @@ class TarefaController extends Controller
         return view('tarefas.edit', compact('tarefa'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Tarefa $tarefa)
     {
 
