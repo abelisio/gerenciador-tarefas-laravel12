@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 
 class TarefaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public readonly Tarefa $tarefa;
     public function __construct()
     {
@@ -20,48 +18,38 @@ class TarefaController extends Controller
     {
         $query = Tarefa::query();
 
-        // Filtro por Número da Tarefa (ID exato)
         if ($request->filled('id')) {
             $query->where('id', $request->id);
         }
 
-        // Filtro por Título (busca parcial)
         if ($request->filled('titulo')) {
             $query->where('titulo', 'like', '%' . $request->titulo . '%');
         }
 
-        // Filtro por Responsável (Select)
         if ($request->filled('responsavel')) {
             $query->where('responsavel', $request->responsavel);
         }
 
-        // Filtro por Situação (Select)
         if ($request->filled('prioridade')) {
             $query->where('prioridade', $request->prioridade);
         }
 
-        // Filtro por intervalo de datas (Deadline)
         if ($request->filled('deadline')) {
             $query->where('deadline', [$request->deadline]);
         }
 
-        // Paginação (10 registros por página)
         $tarefas = $query->orderBy('id', 'desc')->paginate(10);
 
         return view('tarefas.listar', compact('tarefas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         return view("tarefas.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -92,25 +80,19 @@ class TarefaController extends Controller
             'deadline.after_or_equal' => 'A deadline não pode ser no passado.'
         ]);
 
-        // Criar a tarefa apenas com os dados validados
         Tarefa::create($validated);
 
         return redirect()->route('index')->with('success', 'Tarefa criada com sucesso!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Tarefa $tarefa)
+
+    public function show(Tarefa $tarefaid)
     {
-        // return view('listar');
 
         return view('tarefas.show', compact('tarefa'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit($id)
     {
 
@@ -135,19 +117,15 @@ class TarefaController extends Controller
      */
     public function destroy($id)
     {
-
-        $tarefas = Tarefa::findOrFail($id)->delete();
+        $tarefa = Tarefa::findOrFail($id)->delete();
 
         return redirect()->route('tarefas.index');
     }
-    public function atualizarStatus(Tarefa $tarefa)
+    public function atualizarStatus(Tarefa $id)
     {
-        // Alterna entre "Em andamento" e "Concluída"
-        $novoStatus = $tarefa->status === 'Em andamento' ? 'Concluída' : 'Em andamento';
-        // Atualiza no banco de dados
-        $tarefa->update(['status' => $novoStatus]);
+        $novoStatus = $id->status === 'Em andamento' ? 'Concluída' : 'Em andamento';
+        $id->update(['status' => $novoStatus]);
 
-        // Redireciona com mensagem de sucesso
         return redirect()->route('tarefas.index')->with('success', 'Status atualizado com sucesso!');
     }
 }
