@@ -14,5 +14,5 @@ Route::put('/tarefas/{id}', [TarefaController::class, 'atualizarStatus'])->name(
 Route::get('/tarefas/{tarefaid}', [tarefaController::class, 'show'])->name('tarefas.show');
 Route::get('/tarefas/responsavel', [ResponsavelController::class, 'create'])->name(name: 'tarefas.create');
 Route::get('/tarefas/{id}/edit', [TarefaController::class, 'edit'])->name('tarefas.edit');
-Route::put('/tarefas/{tarefa}', [TarefaController::class, 'update'])->name('tarefas.update');
+Route::put('/update-tarefa', [tarefaController::class, 'update'])->name('tarefas.update');
 Route::delete('/tarefas/{id}', [TarefaController::class, 'destroy'])->name('tarefas.destroy');

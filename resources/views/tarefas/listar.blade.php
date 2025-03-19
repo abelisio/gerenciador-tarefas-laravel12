@@ -67,12 +67,14 @@
                         <td>{{ $tarefa->id }}</td>
                         <td>{{ $tarefa->titulo }}</td>
                         <td>{{ $tarefa->responsavel }}</td>
-                        <td><a class="btn btn-info edit-btn" href="{{ route('tarefas.edit', $tarefa->id) }}">Editar</a> </td>
+                        <td><a class="btn btn-info edit-btn" href="{{ route('tarefas.edit', $tarefa->id) }}"><ion-icon
+                                    name="create-outline">Editar</a> </td>
                         <td>
                             <form action="{{$tarefa->id}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger delete-btn">Excluir</button>
+                            </form>
                         </td>
                         <td>
                             <form action="{{ route('tarefas.atualizarStatus', $tarefa->id) }}" method="POST"

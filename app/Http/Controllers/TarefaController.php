@@ -52,16 +52,6 @@ class TarefaController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'titulo' => 'required',
-            'descricao' => 'required',
-            'responsavel' => 'required',
-            'prioridade' => 'required',
-            'deadline' => 'required',
-            'situacao' => 'Em andamento', // Definindo como padrão
-        ]);
-
-        Tarefa::create($request->all());
 
         $validated = $request->validate([
             'titulo'      => 'required|string|max:255',
@@ -103,16 +93,12 @@ class TarefaController extends Controller
 
     public function update(Request $request, Tarefa $tarefa)
     {
-
-        $novoStatus = $tarefa->status === 'Em andamento' ? 'Concluída' : 'Em andamento';
-
+        $tarefa->update($request->all());
 
         return redirect()->route('tarefas.index')->with('success', 'Tarefa atualizada com sucesso.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy($id)
     {
         $tarefa = Tarefa::findOrFail($id)->delete();
