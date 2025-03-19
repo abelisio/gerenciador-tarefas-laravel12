@@ -13,5 +13,5 @@ class Tarefa extends Model
     protected $table = 'tarefas';
 
     // Indicar quais colunas podem ser cadastrada
-    protected $fillable = ['titulo', 'descricao', 'responsavel', 'prioridade', 'deadline'];
+    protected $fillable = ['titulo', 'descricao', 'responsavel', 'prioridade', 'deadline', 'status'];
 }

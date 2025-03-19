@@ -17,7 +17,8 @@ return new class extends Migration
             $table->text('descricao');
             $table->string('responsavel', 250);
             $table->string('prioridade', 250);
-            $table->string('deadline', 250);
+            $table->string('status', 250);
+            $table->date('deadline');
             $table->timestamps();
         });
     }

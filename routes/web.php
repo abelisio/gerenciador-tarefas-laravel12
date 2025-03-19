@@ -12,6 +12,7 @@ Route::get('/tarefas/create', [tarefaController::class, 'create'])->name(name: '
 //Route::POST('/tarefas/create', [tarefaController::class, 'store'])->name(name: 'tarefas.store');
 Route::post('/store-tarefa', [tarefaController::class, 'store'])->name('tarefas.store');
 
+Route::put('/tarefas/{tarefa}', [TarefaController::class, 'atualizarStatus'])->name('tarefas.atualizarStatus');
 
 Route::get('/tarefas/{tarefa}', [tarefaController::class, 'show'])->name('tarefas.show');
 
@@ -19,6 +20,6 @@ Route::get('/tarefas/responsavel', [ResponsavelController::class, 'create'])->na
 
 
 Route::get('/tarefas/{id}/edit', [TarefaController::class, 'edit'])->name('tarefas.edit');
-Route::put('/tarefas/{tarefa}', [TarefaController::class, 'update'])->name('tarefas.update');
+Route::put('/tarefas/{id}', [TarefaController::class, 'update'])->name('tarefas.update');
 
 Route::delete('/tarefas/{id}', [TarefaController::class, 'destroy'])->name('tarefas.destroy');

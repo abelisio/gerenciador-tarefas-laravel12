@@ -69,7 +69,8 @@ class TarefaController extends Controller
             'descricao' => 'required',
             'responsavel' => 'required',
             'prioridade' => 'required',
-            'deadline' => 'required'
+            'deadline' => 'required',
+            'situacao' => 'Em andamento', // Definindo como padrão
         ]);
 
         Tarefa::create($request->all());
@@ -80,6 +81,7 @@ class TarefaController extends Controller
             'responsavel' => 'required|string|max:100',
             'prioridade'  => 'required|in:Baixa,Média,Alta',
             'deadline'    => 'required|date|after_or_equal:today',
+            'situacao' => 'Em andamento', // Definindo como padrão
         ], [
             'titulo.required'      => 'O campo título é obrigatório.',
             'descricao.required'   => 'O campo descrição é obrigatório.',
@@ -122,8 +124,8 @@ class TarefaController extends Controller
     public function update(Request $request, Tarefa $tarefa)
     {
 
+        $novoStatus = $tarefa->status === 'Em andamento' ? 'Concluída' : 'Em andamento';
 
-        $tarefa->update($request->all());
 
         return redirect()->route('tarefas.index')->with('success', 'Tarefa atualizada com sucesso.');
     }
@@ -137,5 +139,15 @@ class TarefaController extends Controller
         $tarefas = Tarefa::findOrFail($id)->delete();
 
         return redirect()->route('tarefas.index');
+    }
+    public function atualizarStatus(Tarefa $tarefa)
+    {
+        // Alterna entre "Em andamento" e "Concluída"
+        $novoStatus = $tarefa->status === 'Em andamento' ? 'Concluída' : 'Em andamento';
+        // Atualiza no banco de dados
+        $tarefa->update(['status' => $novoStatus]);
+
+        // Redireciona com mensagem de sucesso
+        return redirect()->route('tarefas.index')->with('success', 'Status atualizado com sucesso!');
     }
 }

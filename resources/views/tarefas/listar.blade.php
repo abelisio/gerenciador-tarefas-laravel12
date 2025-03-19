@@ -35,7 +35,6 @@
     </select>
 
     <button class="btn btn-warning" type="submit">Buscar Tarefas</button>
-    <input class="btn btn-primary" type="reset" value="Reset">
 </form>
 
 </div>
@@ -64,7 +63,15 @@
                      @method('DELETE')
                      <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline">Excluir</button>
                     </td>
- <td><a class="btn btn-secondary" href="{{ route('tarefas.edit', $tarefa->id) }}"><ion-icon name="create-outline">Concluir</a>
+ <td>
+<form action="{{ route('tarefas.atualizarStatus', $tarefa->id) }}" method="POST" style="display:inline;">
+    @csrf
+    @method('PUT')
+    <button type="submit" name="trash-outline" class="btn {{ $tarefa->status == 'Em andamento' ? 'btn-warning' : 'btn-success' }}">
+        {{ $tarefa->status == 'Em andamento' ? 'Em andamento' : 'Concluída' }}
+    </button>
+
+</form>
                  </td>
         </tr>
         @endforeach
